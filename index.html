@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>⚔️ Clash! – Rock Paper Scissors · Task 2</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Exo+2:wght@400;600;700;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+  <!-- Animated grid background -->
+  <div class="bg-grid" aria-hidden="true"></div>
+
+  <!-- Floating orbs -->
+  <div class="orbs" aria-hidden="true">
+    <div class="orb orb--1"></div>
+    <div class="orb orb--2"></div>
+    <div class="orb orb--3"></div>
+  </div>
+
+  <div class="app">
+
+    <!-- ══ HEADER ══ -->
+    <header class="header">
+      <div class="task-chip">TASK 2</div>
+      <h1 class="logo">CLASH<span class="logo-mark">!</span></h1>
+      <p class="tagline">Rock · Paper · Scissors · <em>Who rules?</em></p>
+    </header>
+
+    <!-- ══ SCOREBOARD ══ -->
+    <div class="scoreboard">
+      <div class="score-cell score-cell--you">
+        <span class="score-num" id="scoreYou">0</span>
+        <span class="score-label">YOU</span>
+      </div>
+      <div class="score-center">
+        <div class="round-badge" id="roundBadge">RD 1</div>
+        <div class="vs-text">VS</div>
+      </div>
+      <div class="score-cell score-cell--cpu">
+        <span class="score-num" id="scoreCpu">0</span>
+        <span class="score-label">CPU</span>
+      </div>
+    </div>
+
+    <!-- ══ ARENA ══ -->
+    <div class="arena">
+
+      <!-- Player side -->
+      <div class="fighter fighter--you">
+        <div class="fighter__label">YOU</div>
+        <div class="hand-stage" id="playerStage">
+          <div class="hand-wrap" id="playerHand">
+            <span class="hand-emoji" id="playerEmoji">🤜</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Middle clash zone -->
+      <div class="clash-zone">
+        <div class="clash-ring" id="clashRing">
+          <span class="clash-icon" id="clashIcon">⚡</span>
+        </div>
+      </div>
+
+      <!-- CPU side -->
+      <div class="fighter fighter--cpu">
+        <div class="fighter__label">CPU</div>
+        <div class="hand-stage" id="cpuStage">
+          <div class="hand-wrap" id="cpuHand" style="transform:scaleX(-1)">
+            <span class="hand-emoji" id="cpuEmoji">🤛</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ RESULT BANNER ══ -->
+    <div class="result-banner hidden" id="resultBanner">
+      <span class="result-icon" id="resultIcon"></span>
+      <span class="result-text" id="resultText"></span>
+    </div>
+
+    <!-- ══ MOVE PICKER ══ -->
+    <div class="picker" id="picker">
+      <p class="picker__cue" id="pickerCue">Choose your weapon</p>
+      <div class="move-grid">
+        <button class="move-btn" data-move="rock"     aria-label="Rock">
+          <span class="move-emoji">🪨</span>
+          <span class="move-name">Rock</span>
+          <span class="move-beats">beats Scissors</span>
+        </button>
+        <button class="move-btn" data-move="paper"    aria-label="Paper">
+          <span class="move-emoji">📄</span>
+          <span class="move-name">Paper</span>
+          <span class="move-beats">beats Rock</span>
+        </button>
+        <button class="move-btn" data-move="scissors" aria-label="Scissors">
+          <span class="move-emoji">✂️</span>
+          <span class="move-name">Scissors</span>
+          <span class="move-beats">beats Paper</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ══ HISTORY STRIP ══ -->
+    <div class="history-wrap">
+      <p class="history-label">Match history</p>
+      <div class="history-strip" id="historyStrip" aria-label="Round history"></div>
+    </div>
+
+    <!-- ══ CONTROLS ══ -->
+    <div class="controls">
+      <button class="ctrl-btn" id="resetBtn">🔄 Reset Score</button>
+      <button class="ctrl-btn ctrl-btn--first5" id="first5Btn">🏅 Best of 5</button>
+    </div>
+
+  </div><!-- /app -->
+
+  <!-- Best-of-5 overlay -->
+  <div class="overlay hidden" id="overlay">
+    <div class="overlay__card">
+      <div class="overlay__emoji" id="overlayEmoji"></div>
+      <h2 class="overlay__title" id="overlayTitle"></h2>
+      <p class="overlay__sub" id="overlaySub"></p>
+      <div class="overlay__stats">
+        <div class="ostat"><span id="oYou">0</span><small>YOUR WINS</small></div>
+        <div class="ostat"><span id="oCpu">0</span><small>CPU WINS</small></div>
+        <div class="ostat"><span id="oTies">0</span><small>TIES</small></div>
+      </div>
+      <button class="btn-play-again" id="playAgainBtn">⚔️ Play Again</button>
+    </div>
+  </div>
+
+  <script src="js/game.js"></script>
+</body>
+</html>
